@@ -1,0 +1,7 @@
+Day 1 - Day 2
+User Account Opening Setup Integration with Chanelle (via API)
+
+Day 3 - Day 9
+Data Verification from KYC infromation
+Loan Application and Setup
+Loan Query (i.e Status , Repayment )

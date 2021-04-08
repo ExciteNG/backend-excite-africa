@@ -1,0 +1,36 @@
+{
+  "development": {
+    "username": "ExciteEnterpriseAdmin",
+    "password": "Management12$",
+    "database": "ExciteEnterpriseDB",
+    "host": "postgresql-19085-0.cloudclusters.net",
+    "port": "19085",
+    "dialect": "postgres",
+    "logging": false,
+    "dialectOptions": {
+      "ssl": { "require": true }
+    }
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "dialectOptions": {
+      "ssl": { "require": false }
+    }
+  },
+  "production": {
+    "username": "ExciteEnterpriseAdmin",
+    "password": "Management12$",
+    "database": "ExciteEnterpriseDB",
+    "host": "postgresql-19085-0.cloudclusters.net",
+    "port": "19085",
+    "dialect": "postgres",
+    "logging": false,
+    "dialectOptions": {
+      "ssl": { "require": true }
+    }
+  }
+}

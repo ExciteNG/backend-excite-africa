@@ -1,0 +1,10 @@
+const path = require('path');
+
+module.exports = {
+  "config": path.resolve('./Database/config', 'config.json'),
+  "models-path": path.resolve('./Database/models'),
+  "seeders-path": path.resolve('./Database/seeders'),
+  "migrations-path": path.resolve('./Database/migrations')
+};
+
+process.env.NODE_TLS_REJECT_UNAUTHORIZED='0'
