@@ -47,4 +47,13 @@ db.User.belongsTo(db.Affiliate, {
   as: "Affiliate",
 });
 
+db.Banner=require('./banner')(sequelize,Sequelize);
+db.Banner=require('./banner')(sequelize,Sequelize);
+
+db.User.hasMany(db.Banner,{as:"Banner",foreignKey:"BannerId"});
+db.Banner.belongsTo(db.User,{
+  foreignKey:"BannerId",
+  as:"User"
+})
+
 module.exports = db;
