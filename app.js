@@ -96,6 +96,7 @@ const SocialLogin = require('./Routing/MarketPlaceRoutes/socialRoutes')
 const VerificatitonRouter = require('./Routing/AuthRoutes/verificationRoute')
 const businessRoute = require("./Routing/BusinessRegistration/businessRoute")
 const TaxRouter = require("./Routing/TaxRoutes/taxRoute");
+const AffiliateRoute = require('./Routing/Affliate/affliateRouting')
 
 // ---------------------ROUTERS  ENDS -----------------------------------//
 
