@@ -10,6 +10,13 @@ module.exports = (sequelize,DataTypes) =>{
         type:DataTypes.STRING,
         allowNull:false
       },
+      // User: {
+      //   type: DataTypes.INTEGER,
+      //   references: {
+      //     // This is a reference to another model
+      //     model: "User",
+      //   },
+      // },
       purpose: DataTypes.STRING,
       approved:{
         type:DataTypes.BOOLEAN,

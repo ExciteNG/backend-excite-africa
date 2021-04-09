@@ -43,7 +43,7 @@ db.Affiliate = require('./Affiliate')(sequelize,Sequelize);
 
 db.Affiliate.hasMany(db.User, {foreignKey: "AffiliateRefcode",
  as: "Users" });
- 
+
 db.User.belongsTo(db.Affiliate, {
   foreignKey: "AffiliateRefcode",
   as: "Affiliate",
@@ -52,10 +52,10 @@ db.User.belongsTo(db.Affiliate, {
 db.Banner=require('./banner')(sequelize,Sequelize);
 db.Banner=require('./banner')(sequelize,Sequelize);
 
-db.User.hasMany(db.Banner,{as:"Banner",foreignKey:"BannerId"});
-db.Banner.belongsTo(db.User,{
-  foreignKey:"BannerId",
-  as:"User"
-})
+// db.User.hasMany(db.Banner,{as:"banner",foreignKey:"UserId"});
+// db.Banner.belongsTo(db.User,{
+//   foreignKey:"UserId",
+//   as:"User"
+// })
 
 module.exports = db;
