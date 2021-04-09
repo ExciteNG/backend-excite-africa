@@ -36,6 +36,9 @@ module.exports = (sequelize, DataTypes) => {
             type : DataTypes.BOOLEAN,
             defaultValue : false
         },
+        // referral_code:{
+        //     type:DataTypes.STRING
+        // }
  
 
 
@@ -53,7 +56,7 @@ module.exports = (sequelize, DataTypes) => {
         User.hasOne(models.UserMembership,{
             onDelete: 'CASCADE' ,
             foreignKey: 'UserAccountMembershipID'
-        })
+        }),
         
         User.hasMany(models.ProductItem,{
             onDelete: 'CASCADE' ,

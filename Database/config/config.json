@@ -1,15 +1,15 @@
 {
   "development": {
-    "username": "ExciteEnterpriseAdmin",
-    "password": "Management12$",
-    "database": "ExciteEnterpriseDB",
-    "host": "postgresql-19085-0.cloudclusters.net",
-    "port": "19085",
-    "dialect": "postgres",
-    "logging": false,
+    "username":"cewdcwdw",
+    "password":"C5M_klQSoZV25bgnoYONNas4rbKkd_bw",
+    "database":"cewdcwdw",
+    "host":"queenie.db.elephantsql.com",
+    "port":"5432",
+    "dialect":"postgres",
     "dialectOptions": {
       "ssl": { "require": true }
-    }
+    },
+    "logging":false
   },
   "test": {
     "username": "root",
@@ -22,15 +22,15 @@
     }
   },
   "production": {
-    "username": "ExciteEnterpriseAdmin",
-    "password": "Management12$",
-    "database": "ExciteEnterpriseDB",
-    "host": "postgresql-19085-0.cloudclusters.net",
-    "port": "19085",
-    "dialect": "postgres",
-    "logging": false,
+    "username":"cewdcwdw",
+    "password":"C5M_klQSoZV25bgnoYONNas4rbKkd_bw",
+    "database":"cewdcwdw",
+    "host":"queenie.db.elephantsql.com",
+    "port":"5432",
+    "dialect":"postgres",
     "dialectOptions": {
       "ssl": { "require": true }
-    }
+    },
+    "logging":false
   }
 }
