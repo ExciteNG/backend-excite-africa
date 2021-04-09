@@ -41,7 +41,9 @@ db.Sequelize = Sequelize;
 db.User = require('./User')(sequelize,Sequelize);
 db.Affiliate = require('./Affiliate')(sequelize,Sequelize);
 
-db.Affiliate.hasMany(db.User, { as: "Users" });
+db.Affiliate.hasMany(db.User, {foreignKey: "AffiliateRefcode",
+ as: "Users" });
+ 
 db.User.belongsTo(db.Affiliate, {
   foreignKey: "AffiliateRefcode",
   as: "Affiliate",
