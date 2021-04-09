@@ -34,7 +34,6 @@ app.use((req, res, next) => {
   next();
 });
 
-
 // var whitelist = ["*"]; //white list consumers
 // var corsOptions = {
 //   origin: function (origin, callback) {
@@ -96,6 +95,7 @@ const SocialLogin = require('./Routing/MarketPlaceRoutes/socialRoutes')
 const VerificatitonRouter = require('./Routing/AuthRoutes/verificationRoute')
 const businessRoute = require("./Routing/BusinessRegistration/businessRoute")
 const TaxRouter = require("./Routing/TaxRoutes/taxRoute");
+const BannerRoutes = require('./Routing/MarketPlaceRoutes/Promotions/bannerRoutes')
 
 // ---------------------ROUTERS  ENDS -----------------------------------//
 
@@ -143,6 +143,7 @@ postgresDB.sequelize
     app.use('/social/',SocialLogin)
     app.use('/business-application',businessRoute)
     app.use("/tax", TaxRouter)
+    app.use("/banner", BannerRoutes)
 
     // RUN APP
     app.listen(PORT)
