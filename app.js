@@ -25,31 +25,42 @@ let logger = require("morgan"),
   bodyParser = require("body-parser")
 
 // CORS CONFIGURATION CONTROL
-var whitelist = ["*"]; //white list consumers
-var corsOptions = {
-  origin: function (origin, callback) {
-    if (whitelist.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      callback(null, false);
-    }
-  },
-  methods: ["GET", "PUT", "POST", "DELETE", "OPTIONS"],
-  optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
-  credentials: true, //Credentials are cookies, authorization headers or TLS client certificates.
-  allowedHeaders: [
-    "Content-Type",
-    "Authorization",
-    "X-Requested-With",
-    "device-remember-token",
-    "sessionuserid",
-    "Access-Control-Allow-Origin",
-    "Origin",
-    "Accept",
-  ],
-};
+// Set headers to prevent cors error.
+//
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
+  next();
+});
 
-app.use(cors({credentials:true}));
+
+// var whitelist = ["*"]; //white list consumers
+// var corsOptions = {
+//   origin: function (origin, callback) {
+//     if (whitelist.indexOf(origin) !== -1) {
+//       callback(null, true);
+//     } else {
+//       callback(null, false);
+//     }
+//   },
+//   methods: ["GET", "PUT", "POST", "DELETE", "OPTIONS"],
+//   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+//   credentials: true, //Credentials are cookies, authorization headers or TLS client certificates.
+//   allowedHeaders: [
+//     "Content-Type",
+//     "Authorization",
+//     "X-Requested-With",
+//     "device-remember-token",
+//     "sessionuserid",
+//     "Access-Control-Allow-Origin",
+//     "Origin",
+//     "Accept",
+//   ],
+// };
+
+// app.use(cors({credentials:true}));
+
 // app.use(express.json())
 app.use(logger("dev"));
 
