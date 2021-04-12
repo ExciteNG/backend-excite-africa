@@ -118,10 +118,10 @@ console.log(generateRefCode())
 
 // }
 
-{
-    development:{
-        'username':'postgres',
-        password:'postgres',
+// {
+//     development:{
+//         'username':'postgres',
+//         password:'postgres',
 
-    }
-}
+//     }
+// }
