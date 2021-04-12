@@ -15,7 +15,7 @@ if (config.use_env_variable) {
     // sequelizeNoUpdateAttributes(sequelize)
   } else {
   sequelize = new Sequelize(config.database, config.username, config.password,config);
-
+  }
   // sequelizeNoUpdateAttributes(sequelize)
 
 fs
