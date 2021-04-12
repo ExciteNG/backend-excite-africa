@@ -8,6 +8,17 @@ var passport = require("passport"),
 const passportJWT = require("passport-jwt");
 const multer = require('multer');
 const fileUpload =  require('express-fileupload')
+const { Client } = require('pg');
+//connect to heroku db
+
+const client = new Client({
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false
+  }
+});
+
+client.connect();
 
 
 var ip = require("ip");
