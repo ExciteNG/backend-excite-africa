@@ -10,14 +10,9 @@ const db = {};
 var sequelizeNoUpdateAttributes = require('sequelize-noupdate-attributes');
 
 let sequelize;
-if (config.use_env_variable) {
-  sequelize = new Sequelize(process.env[config.use_env_variable], config);
-  // sequelizeNoUpdateAttributes(sequelize)
-} else {
   sequelize = new Sequelize(config.database, config.username, config.password,config);
 
   // sequelizeNoUpdateAttributes(sequelize)
-}
 
 fs
   .readdirSync(__dirname)
