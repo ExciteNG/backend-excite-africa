@@ -75,3 +75,14 @@ console.log(generateRefCode())
 // "dialectOptions": {
 //     "ssl":{"require": false}
 //   },
+
+// "production": {
+
+//     "username":"postgres",
+//     "password":"postgres",
+//     "database":"postgres",
+//     "host":"127.0.0.1",
+//     "port":"5432",
+//     "dialect":"postgres",
+//     "logging":false
+//   },
