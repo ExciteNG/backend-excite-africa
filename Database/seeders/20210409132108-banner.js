@@ -3,13 +3,23 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
 
-     // await queryInterface.bulkInsert('banner', [{
-     // category: 'Electronics',
-     // banner: 'jpg',
-     // User:1,
-     // purpose:'to sell goods',
-     // approved:true
-     // }], {});
+     await queryInterface.bulkInsert('Affiliate', [{
+      
+        "full_name": "Jane Doe",
+        "refcode":"1011a",
+        "email": "jone@gmail.com",
+        "username": "emmii",
+        "phone_no": "+2347081927814",
+        "address": "lagos",
+        "state_of_origin": "usa",
+        "lga": "gra",
+        "means_of_id": "nin",
+        "passport": "zennww",
+        "password": "hello",
+        // "password2":"hello",
+     createdAt:new Date(),
+     updatedAt:new Date()
+     }], {});
 
   },
 

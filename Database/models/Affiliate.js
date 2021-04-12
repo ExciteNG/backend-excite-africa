@@ -3,22 +3,20 @@ const referralCodes = require('referral-codes');
 module.exports = (sequelize,DataTypes) =>{
 
 
-    const Affiliate = sequelize.define('affiliate',{
+    const Affiliate = sequelize.define('Affiliate',{
 
         full_name:{
             type:DataTypes.STRING,
-            allowNull:false
+            allowNull:false,
+            unique:true
         },
         refcode:{
             type:DataTypes.STRING,
             allowNull:false,
             unique:true,
             primaryKey:true,
-            default:referralCodes.generate({
-                length: 8,
-                count: 1
-            }).join(''),
-            noUpdate:true
+            // default:generateRefCode(),
+            // noUpdate:true
         },
         email:{
             type:DataTypes.STRING,
@@ -30,13 +28,18 @@ module.exports = (sequelize,DataTypes) =>{
                 }
             }
         },
+        username:{
+            type:DataTypes.STRING,
+            allowNull:false,
+            unique:true
+        },
         phone_no:{
             type:DataTypes.STRING,
             allowNull:false,
             unique:true,
             validate:{
                 is:{
-                    args:['(\d{3})\D*(\d{3})\D*(\d{4})\D*(\d*)$','i'],
+                    args:/(\d{3})\D*(\d{3})\D*(\d{4})\D*(\d*)$/i,
                     msg:"must be a valid phone number"
                 }
             }

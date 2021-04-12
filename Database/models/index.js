@@ -12,10 +12,11 @@ var sequelizeNoUpdateAttributes = require('sequelize-noupdate-attributes');
 let sequelize;
 if (config.use_env_variable) {
   sequelize = new Sequelize(process.env[config.use_env_variable], config);
-  sequelizeNoUpdateAttributes(sequelize)
+  // sequelizeNoUpdateAttributes(sequelize)
 } else {
-  sequelize = new Sequelize(config.database, config.username, config.password, config);
-  sequelizeNoUpdateAttributes(sequelize)
+  sequelize = new Sequelize(config.database, config.username, config.password,config);
+
+  // sequelizeNoUpdateAttributes(sequelize)
 }
 
 fs
@@ -38,24 +39,24 @@ db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
 
-db.User = require('./User')(sequelize,Sequelize);
-db.Affiliate = require('./Affiliate')(sequelize,Sequelize);
+db.user = require('./User')(sequelize,Sequelize);
+db.Banner = require('./Banners')(sequelize,Sequelize);
+db.affiliate = require('./Affiliate')(sequelize,Sequelize);
 
-db.Affiliate.hasMany(db.User, {foreignKey: "AffiliateRefcode",
+db.affiliate.hasMany(db.user, {foreignKey: "AffiliateRefcode",
  as: "Users" });
 
-db.User.belongsTo(db.Affiliate, {
+db.user.belongsTo(db.affiliate, {
   foreignKey: "AffiliateRefcode",
   as: "Affiliate",
 });
 
-db.Banner=require('./banner')(sequelize,Sequelize);
-db.Banner=require('./banner')(sequelize,Sequelize);
+db.Banner=require('./Banners')(sequelize,Sequelize);
 
-// db.User.hasMany(db.Banner,{as:"banner",foreignKey:"UserId"});
-// db.Banner.belongsTo(db.User,{
-//   foreignKey:"UserId",
-//   as:"User"
-// })
+db.user.hasMany(db.Banner,{foreignKey: "UserId"});
+db.Banner.belongsTo(db.user,{
+  foreignKey:"UserId",
+  as:"Banner"
+})
 
 module.exports = db;

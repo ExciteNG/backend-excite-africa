@@ -19,7 +19,15 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: true,
         },
+        refcode:{
+            type:DataTypes.STRING,
+            references: {
+                // This is a reference to another model
+                model: "Affiliate",
+                key:"refcode"
+              }
 
+        },
         isVerfied :{
             type : DataTypes.BOOLEAN,
             defaultValue : false
@@ -63,10 +71,10 @@ module.exports = (sequelize, DataTypes) => {
             foreignKey: 'ProductForUserID' 
         })
                 
-        // User.hasMany(models.BusinessRegistration,{
-        //     onDelete: 'CASCADE' ,
-        //     foreignKey: 'UserAccountID' 
-        // })
+        User.hasMany(models.banners,{
+            onDelete: 'CASCADE' ,
+            foreignKey: 'UserBannerId' 
+        })
     }}
     User.sync().then(()=>{
         console.log('User Has been Synced')

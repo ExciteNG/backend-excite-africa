@@ -28,7 +28,7 @@ const getUser = async (username) => {
 };
 
 // Registers A User
-let registerUser = async (username,email, fullName, password,
+let registerUser = async (username,email, fullName, password,refcode
   // affliateCode
 ) => {
   try {
@@ -48,6 +48,7 @@ let registerUser = async (username,email, fullName, password,
       Email: email,
       FullName: fullName,
       Password: password,
+      refcode:refcode
     });
 
     // Create Subscription

@@ -116,7 +116,7 @@ router.get(
 // const sendEmail = require("../controllers/emailControls");
  
 router.post("/register", async function (req, res, next) {
-  const { username, password1,password2, email ,fullname } = req.body;
+  const { username, password1,password2, email ,fullname,refcode } = req.body;
   console.log(req.body);
 
   if (password1 == password2){
@@ -128,7 +128,7 @@ router.post("/register", async function (req, res, next) {
 
       // creates a new user
       
-      let newUser = await authControl.registerUser(username , email , fullname,hash)
+      let newUser = await authControl.registerUser(username , email , fullname,hash, refcode)
     //   sendEmail.sendVerificaionEmail(email);
       console.log('this is the new user',newUser); 
       if (newUser !== false) {

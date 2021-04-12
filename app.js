@@ -27,6 +27,10 @@ let logger = require("morgan"),
 // Set headers to prevent cors error.
 //
 app.use((req, res, next) => {
+  res.header(
+    "Access-Control-Allow-Headers",
+    "x-access-token, Origin, Content-Type, Accept"
+  );
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
@@ -95,7 +99,7 @@ const VerificatitonRouter = require('./Routing/AuthRoutes/verificationRoute')
 const businessRoute = require("./Routing/BusinessRegistration/businessRoute")
 const TaxRouter = require("./Routing/TaxRoutes/taxRoute");
 const BannerRoutes = require('./Routing/MarketPlaceRoutes/Promotions/bannerRoutes')
-const AffiliateRoute = require('./Routing/Affliate/affliateRouting')
+const AffiliateRoute = require('./Routing/AffliateRouting/affliateRouting');
 
 
 // ---------------------ROUTERS  ENDS -----------------------------------//
@@ -120,6 +124,7 @@ postgresDB.sequelize
     //  Session Middleware
     app.use(
       session({
+        
         key: "user_sid",
         secret: "somerandonstuffs",
         resave: false,
@@ -145,9 +150,12 @@ postgresDB.sequelize
     app.use('/business-application',businessRoute)
     app.use("/tax", TaxRouter)
     app.use("/banner", BannerRoutes)
+    app.use('/affiliate',AffiliateRoute)
 
     // RUN APP
-    app.listen(PORT)
+    app.listen(PORT,()=>{
+      console.log('port is running')
+    })
   })
   .catch((e) => {
     console.log(e);

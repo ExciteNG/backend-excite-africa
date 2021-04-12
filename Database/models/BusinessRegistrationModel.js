@@ -114,7 +114,7 @@ module.exports = (sequelize, DataTypes) => {
     };
   
     
-    BusinessRegistration.sync({ force: true }).then(() => {
+    BusinessRegistration.sync().then(() => {
       console.log('Busines sRegistration Has been Synced')
     });
     return BusinessRegistration;
