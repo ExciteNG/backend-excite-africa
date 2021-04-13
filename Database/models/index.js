@@ -49,8 +49,8 @@ db.User.belongsTo(db.Affiliate, {
   as: "Affiliate",
 });
 
-db.Banner=require('./banner')(sequelize,Sequelize);
-db.Banner=require('./banner')(sequelize,Sequelize);
+// db.Banner=require('./banner')(sequelize,Sequelize);
+db.AdBanner=require('./adbanners')(sequelize,Sequelize);
 
 // db.User.hasMany(db.Banner,{as:"banner",foreignKey:"UserId"});
 // db.Banner.belongsTo(db.User,{

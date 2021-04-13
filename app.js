@@ -25,7 +25,6 @@ let logger = require("morgan"),
 
 // CORS CONFIGURATION CONTROL
 // Set headers to prevent cors error.
-//
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');
@@ -102,7 +101,7 @@ const AffiliateRoute = require('./Routing/Affliate/affliateRouting')
 
 // Sync DB With APP
 postgresDB.sequelize
-  .sync()
+  .sync({force: true})
   .then(function () {
 
     console.log("Server Started");
@@ -153,3 +152,4 @@ postgresDB.sequelize
     console.log(e);
     console.log("Failed to start server");
   });
+  
